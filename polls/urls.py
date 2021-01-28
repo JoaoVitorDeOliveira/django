@@ -7,8 +7,8 @@ app_name = 'polls'
 
 #all paths that call the view methods
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('details/<int:question_id>/', views.detail, name='detail'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     path('vote/<int:question_id>/', views.vote, name='vote'),
-    path('result/<int:question_id>/', views.result, name='result')
 ]
